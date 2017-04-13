@@ -8,6 +8,7 @@ class SearchBar extends Component {
 
     // console.log('In constructor', this)
     this.onInputChange = this.onInputChange.bind(this)
+    this.onFormSubmit = this.onFormSubmit.bind(this)
   }
 
   onInputChange(event) {
@@ -18,10 +19,20 @@ class SearchBar extends Component {
     )
   }
 
+  onFormSubmit(event) {
+    event.preventDefault();
+
+    console.log("form is submitted")
+    // console.log(this)
+    this.setState({ term: "" })
+  }
+
   render() {
     return (
       <div>
-        <form className="input-group">
+        <form
+          onSubmit={this.onFormSubmit}
+          className="input-group" >
           <input
             placeholder="Get a five-day forecast in your favorite cities"
             className="form-control"
