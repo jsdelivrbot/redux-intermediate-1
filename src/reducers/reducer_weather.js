@@ -3,7 +3,8 @@ import { FETCH_WEATHER } from '../actions/index';
 export default function (state = [], action) {
   if (action.type) {
     if (action.type == FETCH_WEATHER) {
-      return [ action.payload.data ]
+      console.log('action received')
+      return [ action.type.payload, ...state ];
     }
   }
 
